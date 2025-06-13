@@ -69,10 +69,10 @@ function saveTodos(){
     localStorage.setItem("todos", todosJson);
 }
 function getTodos(){
-    const todos = localStorage.getItem("todos") || [];
+    const todos = localStorage.getItem("todos");
+    if (!todos) return [];
     return JSON.parse(todos);
 }
-
 function deleteTodoItem(todoIndex){
     allTodos = allTodos.filter((_, i)=> i !== todoIndex)
     saveTodos();
